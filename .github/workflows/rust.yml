@@ -25,12 +25,14 @@ jobs:
       run: brew install youtube-dl 
     - name: get-the video format 
       run: youtube-dl -F https://www.youtube.com/watch?v=1vvyyhteIv4
+    - name: get-the video format 1
+      #run: youtube-dl https://www.youtube.com/watch?v=1vvyyhteIv4
+      run: youtube-dl -F https://youtu.be/vrZxeNHzcE8?list=PLMHbQxe1e9Mk5kOHrm9v20-umkE2ck_gE 
     - name: get-the video format -audio
       run: youtube-dl -f 140 https://www.youtube.com/watch?v=1vvyyhteIv4 -o '%(format_id)s-2021-12-11.m4a'
     - name: get-the video
       #run: youtube-dl https://www.youtube.com/watch?v=1vvyyhteIv4
-      run: youtube-dl  https://www.youtube.com/watch?v=lT9eLDMCJ_U&list=PLMHbQxe1e9Mk5kOHrm9v20-umkE2ck_gE -o '%(format_id)s-2021-12-11.mp4'
-       
+      run: youtube-dl  https://youtu.be/vrZxeNHzcE8?list=PLMHbQxe1e9Mk5kOHrm9v20-umkE2ck_gE -o '%(format_id)s-2021-12-11.mp4'
     - name: list-files
       run: ls -al .
     - name: Upload file
