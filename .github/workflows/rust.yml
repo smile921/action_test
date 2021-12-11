@@ -29,21 +29,21 @@ jobs:
       run: youtube-dl -f 140 https://www.youtube.com/watch?v=1vvyyhteIv4 -o '%(format_id)s-2021-12-11.m4a'
     - name: get-the video
       #run: youtube-dl https://www.youtube.com/watch?v=1vvyyhteIv4
-      run: youtube-dl -F https://www.youtube.com/watch?v=lT9eLDMCJ_U&list=PLMHbQxe1e9Mk5kOHrm9v20-umkE2ck_gE 
-      #-O video.mp4
+      run: youtube-dl  https://www.youtube.com/watch?v=lT9eLDMCJ_U&list=PLMHbQxe1e9Mk5kOHrm9v20-umkE2ck_gE -o 'video.mp4'
+       
     - name: list-files
       run: ls -al .
     - name: Upload file
       uses: actions/upload-artifact@v2.2.4
       with:
         # Artifact name
-        name: video
+        name: 140-2021-12-11.m4a
         path: 140-2021-12-11.m4a
+        #warn: Output a warning but do not fail the action
+    - name: Upload a Build Artifact udp-server
+      uses: actions/upload-artifact@v2.2.4
+      with:
+        # Artifact name
+        name: video.mp4
+        path: video.mp4
         warn: Output a warning but do not fail the action
-    # - name: Upload a Build Artifact udp-server
-    #   uses: actions/upload-artifact@v2.2.4
-    #   with:
-    #     # Artifact name
-    #     name: udp-server
-    #     path: target/release/udp-server
-    #     warn: Output a warning but do not fail the action
