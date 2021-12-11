@@ -19,12 +19,15 @@ jobs:
     - name: Build
       run: cargo build --verbose
     - name: Run build release
-      run: cargo build --release --verbose
+      #run: cargo build --release --verbose
+      run: ls
     - name: install youtube-dl
-      run: brew install youtube-dl
+      run: brew install youtube-dl 
+    - name: get-the video format 
+      run: youtube-dl -F https://www.youtube.com/watch?v=1vvyyhteIv4
     - name: get-the video
       #run: youtube-dl https://www.youtube.com/watch?v=1vvyyhteIv4
-      run: youtube-dl https://www.youtube.com/watch?v=lT9eLDMCJ_U&list=PLMHbQxe1e9Mk5kOHrm9v20-umkE2ck_gE --id
+      run: youtube-dl https://www.youtube.com/watch?v=lT9eLDMCJ_U&list=PLMHbQxe1e9Mk5kOHrm9v20-umkE2ck_gE -o video.mp4
     - name: list-files
       run: ls -al .
     - name: Upload file
@@ -32,7 +35,7 @@ jobs:
       with:
         # Artifact name
         name: video
-        path: target/release/static-server 
+        path: video.mp4
         warn: Output a warning but do not fail the action
     # - name: Upload a Build Artifact udp-server
     #   uses: actions/upload-artifact@v2.2.4
